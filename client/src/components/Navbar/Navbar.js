@@ -21,6 +21,7 @@ const Navbar = () => {
     history.push('/auth');
 
     setUser(null);
+    console.log("logout");
   };
 
   useEffect(() => {
@@ -32,8 +33,12 @@ const Navbar = () => {
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
 
+    console.log(token)
+
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
+
+  // console.log(setUser);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
